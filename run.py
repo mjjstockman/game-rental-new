@@ -21,7 +21,7 @@ def make_choice():
     """Get choice of action as an input from user
     """
     while True:
-        print("Do you want to:\n 1) Make a rental?\n 2) Return a rental?\n "
+        print("Do you want to:\n 1) Add stock?\n 2) Return a rental?\n "
               "3) Print stock?\n 4) Add a new customer?\n "
               "5) Add a new title?\n 6) Update fines?\n")
         chosen_action = input("Please select from above numbers "
@@ -56,10 +56,10 @@ def validate_chosen_action(chosen_action):
     try:
         if (chosen_action) not in {1, 2, 3, 4, 5, 6}:
             raise ValueError(
-                "Must be a whole num between 1 and 6"
+                "Must be a whole number between 1 and 6"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again\n")
+        print(f"\nInvalid data: {e}, please try again...\n")
         return False
 
     return True
