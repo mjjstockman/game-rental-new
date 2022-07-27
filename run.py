@@ -16,8 +16,16 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("game_rental_new")
 
-stock = SHEET.worksheet('stock')
 
-data = stock.get_all_values()
+def add_stock():
+    """
+    Add opening stock info
+    """
+    print("Please enter stock information.")
+    print("Data should be the name of the game, the age restriction and the number in stock, seperated by commas")
+    print("Eg: Super Mario Galaxy, 5, 3\n")
 
-print(data)
+    data_str = input("Enter your data here: ")
+    print(f"The data provided is {data_str}")
+
+add_stock()
