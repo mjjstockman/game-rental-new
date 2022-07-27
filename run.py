@@ -42,6 +42,27 @@ def make_choice():
                 input_data(1)
             break
 
+
+def validate_chosen_action(chosen_action):
+    """Checks chosen_action input was an integer between 1 and 6
+    Args:
+        chosen_action (int) : The input the user entered when choosing
+        an action
+    Raises:
+        ValueError : If chosen_action is not a full number between 1 and 5
+    Notes:
+        Converts chosen_Action to a string before testing for inclusion
+    """
+    try:
+        if (chosen_action) not in {1, 2, 3, 4, 5, 6}:
+            raise ValueError(
+                "Must be a whole num between 1 and 6"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again\n")
+        return False
+
+    return True
 # def add_stock():
 #     """
 #     Add opening stock info
