@@ -68,16 +68,42 @@ def validate_chosen_action(chosen_action):
 def add_stock():
     """Adds new game data to games worksheet if data is verified
     """
-    while True:
-        title = input("\nAdd game title:\n")
-        min_age = input("\nAdd minimum age:\n")
-        quantity = input("\nAdd how many:\n")
-        new_stock_info = [title, min_age, quantity]
-        # print(new_stock_info)
-        if validate_add_stock(new_stock_info):
-             print(f"\nYou entered...\n Title: {title}\n "
-                  f"Minimun Age: {min_age}\n"
-                  f"Quantity: {quantity}\n")
+    print("Please enter stock information.")
+    print("Data should be the name of the game, the age restriction and the number adding to stock, seperated by commas")
+    print("Eg: Super Mario Galaxy, 5, 3\n")
+
+    data_str = input("Enter your data here:\n")
+
+    stock_data = data_str.split(",")
+    validate_add_stock(stock_data)
+
+    # print(f"You want to add {data_str}")
+
+def validate_add_stock(values):
+    try:
+        if len(values) != 3:
+            raise ValueError(
+                f"Missing an entry"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again\n")
+            
+
+add_stock()
+#     validate_add_stock(stock_data)
+
+    # while True:
+    #     title = input("\nAdd game title:\n")
+    #     min_age = input("\nAdd minimum age:\n")
+    #     quantity = input("\nAdd how many:\n")
+    #     new_stock_info = [title, min_age, quantity]
+    #     # print(new_stock_info)
+    #     if validate_add_stock(new_stock_info):
+    #          print(f"\nYou entered...\n Title: {title}\n "
+    #               f"Minimun Age: {min_age}\n"
+    #               f"Quantity: {quantity}\n")
+    #     else:
+    #         add_stock()
             
 
 
@@ -97,24 +123,23 @@ def add_stock():
         #         update_worksheet(new_stock_info, "games")
         #         break
 
-def validate_add_stock(new_stock_info):
-    """Checks all data has been entered and is valid
-    Returns:
-        bool : True if data validates, False if not
-    """
-    if not all(new_stock_info):
-        print("Missing an element, please try again")
-        return False
-
-        try:
-            int(new_stock_info[1])
-        except:
-            print("min age not a number, please try again")
-        try:
-            int(new_stock_info[2])
-        except:
-            print("quantity not a number, please try again")
-        return True
+# def validate_add_stock(new_stock_info):
+#     """Checks all data has been entered and is valid
+#     Returns:
+#         bool : True if data validates, False if not
+#     """
+#     if not all(new_stock_info):
+#         print("Missing an element, please try again")
+#         return False
+#     try:
+#         int(new_stock_info[1])
+#     except:
+#         print("min age not a number, please try again")
+#     try:
+#         int(new_stock_info[2])
+#     except:
+#         print("quantity not a number, please try again")
+#     return True
 
 
 # add_stock()
@@ -145,7 +170,4 @@ def validate_add_stock(new_stock_info):
 #             raise ValueError(
 #                 f"Data have "
 #             )
-
-
-make_choice()
 
