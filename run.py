@@ -39,7 +39,7 @@ def make_choice():
             elif int(chosen_action) == 2:
                 input_data(2)
             elif int(chosen_action) == 1:
-                input_data(1)
+                add_stock()
             break
 
 
@@ -54,7 +54,7 @@ def validate_chosen_action(chosen_action):
         Converts chosen_Action to a string before testing for inclusion
     """
     try:
-        if (chosen_action) not in {1, 2, 3, 4, 5, 6}:
+        if int(chosen_action) not in {1, 2, 3, 4, 5, 6}:
             raise ValueError(
                 "Must be a whole number between 1 and 6"
             )
@@ -63,6 +63,62 @@ def validate_chosen_action(chosen_action):
         return False
 
     return True
+
+
+def add_stock():
+    """Adds new game data to games worksheet if data is verified
+    """
+    while True:
+        title = input("\nAdd game title:\n")
+        min_age = input("\nAdd minimum age:\n")
+        quantity = input("\nAdd how many:\n")
+        new_stock_info = [title, min_age, quantity]
+        # print(new_stock_info)
+        if validate_add_stock(new_stock_info):
+             print(f"\nYou entered...\n Title: {title}\n "
+                  f"Minimun Age: {min_age}\n"
+                  f"Quantity: {quantity}\n")
+            
+
+
+        # if validate_add_game(new_stock_info):
+        #     print(f"\nYou entered...\n Title: {title}\n "
+        #           f"Minimun Age: {min_age}\n"
+        #           f"Quantity: {quantity}\n")
+        #      print(f"\nYou entered...\n Title: {title}\n "
+        #           f"Minimun Age: {min_age}\n"
+        #           f"Quantity: {quantity}\n")
+        #     confirm = input("Enter Y for yes, N for No\n")
+        #     confirm_strip_lcase = confirm.strip().lower()
+        #     if confirm_strip_lcase == "n":
+        #         validate_add_game(new_game_info)
+        #         print("from 435 confirm says no")
+        #     elif confirm_strip_lcase == "y":
+        #         update_worksheet(new_stock_info, "games")
+        #         break
+
+def validate_add_stock(new_stock_info):
+    """Checks all data has been entered and is valid
+    Returns:
+        bool : True if data validates, False if not
+    """
+    if not all(new_stock_info):
+        print("Missing an element, please try again")
+        return False
+
+        try:
+            int(new_stock_info[1])
+        except:
+            print("min age not a number, please try again")
+        try:
+            int(new_stock_info[2])
+        except:
+            print("quantity not a number, please try again")
+        return True
+
+
+# add_stock()
+
 # def add_stock():
 #     """
 #     Add opening stock info
