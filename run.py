@@ -17,15 +17,58 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("game_rental_new")
 
 
-def add_stock():
+def make_choice():
+    """Get choice of action as an input from user
     """
-    Add opening stock info
-    """
-    print("Please enter stock information.")
-    print("Data should be the name of the game, the age restriction and the number in stock, seperated by commas")
-    print("Eg: Super Mario Galaxy, 5, 3\n")
+    while True:
+        print("Do you want to:\n 1) Make a rental?\n 2) Return a rental?\n "
+              "3) Print stock?\n 4) Add a new customer?\n "
+              "5) Add a new title?\n 6) Update fines?\n")
+        chosen_action = input("Please select from above numbers "
+                              "and press Enter:\n")
+       
+        if validate_chosen_action(chosen_action):
+            if int(chosen_action) == 6:
+                get_overdue_items()
+            elif int(chosen_action) == 5:
+                add_game()
+            elif int(chosen_action) == 4:
+                add_customer()
+            elif int(chosen_action) == 3:
+                print_stock()
+            elif int(chosen_action) == 2:
+                input_data(2)
+            elif int(chosen_action) == 1:
+                input_data(1)
+            break
 
-    data_str = input("Enter your data here: ")
-    print(f"The data provided is {data_str}")
+# def add_stock():
+#     """
+#     Add opening stock info
+#     """
+#     print("Please enter stock information.")
+#     print("Data should be the name of the game, the age restriction and the number in stock, seperated by commas")
+#     print("Eg: Super Mario Galaxy, 5, 3\n")
 
-add_stock()
+#     data_str = input("Enter your data here: ")
+
+#     stock_data = data_str.split(",")
+#     validate_add_stock(stock_data)
+
+
+# def validate_add_stock(values):
+#     """
+#     Inside the try, 
+
+#     Args:
+#         values (_type_): _description_
+#     """
+#     try:
+#         if len(values) != 3:
+#             raise ValueError(
+#                 f"Data have "
+#             )
+
+
+make_choice()
+
