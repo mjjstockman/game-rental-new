@@ -157,23 +157,14 @@ The home app was created to seperate some of the logic.  This is possibly not th
 
 # Features
 
-## Navigation and Header
+## Initial User Choice
 
-The navigation bar allows the user to easily select which area of the site they wish to view. It will be located at the top of the site as this is common practice and is the area where most users eyes will be initially drawn to. It will be not be'sticky', as the main links a user will need when scrolling are provided. When a link is hovered over it becomes highlighted to help the user confirm they are about to select the relevant link. The highlight remains once selected.
-
-The 'hamburger' icon was used on small screens (where the navigation bar will collapse and be represented as three horizontal lines. When touched/clicked, this displays the navigation in a dropdown menu). This is done due to the limited real estate space making the text hard to read when the screen is this size.
-
-<img src="docs/readme_images/features/nav/nav-hamburger.png"  alt="Nav at mobile size showing the hamburger icon">
-
-The logo is displayed on the left hand side and the nav on the right.
-
-If the user is logged in the navigation displys the following links for Home and Logout:
-<img src="docs/readme_images/features/nav/nav-loggedin.png"  alt="Nav at mobile size showing the hamburger icon">
-
-
-If the user is not logged in the navigation displys the following links for Home and Sign Up and Login:
-
-<img src="docs/readme_images/features/nav/nav-not-loggedin.png"  alt="Nav at mobile size showing the hamburger icon">
+The app begins by asking for the user to choose what they want to do.  This consists of:
+1. Adding stock.
+2. Checking stock.
+3. Registering a new Customer.
+4. Renting out a game.
+5. Returning a game.
 
 
 [Back to top ⇧](#Setlist-Sharer)
