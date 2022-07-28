@@ -81,10 +81,12 @@ def add_stock():
 
 def validate_add_stock(values):
     try:
-        if len(values) != 3:
-            raise ValueError(
-                f"Missing an entry"
-            )
+        if (values[0]) == "":
+            raise ValueError("Missing game name")
+        if (values[1]) ==  "":
+            raise ValueError("Missing age restriction")
+        if (values[2]) == "":
+            raise ValueError("Missing number of items")
     except ValueError as e:
         print(f"Invalid data: {e}, please try again\n")
             
